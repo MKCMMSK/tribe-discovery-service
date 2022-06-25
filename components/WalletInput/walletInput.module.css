@@ -8,5 +8,15 @@
 }
 
 .wallet-form {
-    width: 500px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.wallet-form-label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
