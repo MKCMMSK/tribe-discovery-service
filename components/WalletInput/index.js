@@ -3,10 +3,6 @@ import styles from './walletInput.module.css';
 import publicStyles from '../../styles/shared.module.css';
 
 export default function WalletInput(props) {
-    console.log(publicStyles)
-    useEffect(()=>{
-        console.log(props.walletInput, 'in use effect')
-    }, [props.walletInput]);
 
     function handleChange(event) {
         props.setWalletInput(event.target.value);

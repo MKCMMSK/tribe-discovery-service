@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Head from 'next/head'
 import styles from '../styles/shared.module.css';
-import * as data from '../testData/data.json';
-import * as data2 from '../testData/data2.json';
 import Nav from '../components/Nav';
 import Body from '../components/Body';
 import WalletInput from '../components/WalletInput';
@@ -15,11 +13,6 @@ export default function Home() {
   const [projectsYouMightLike, setProjectsYouMightLike] = useState({});
   const [isLoading, setIsLoading] =useState(false);
 
-
-  useEffect(()=> {
-    console.log(ownedNFT);
-  }, [ownedNFT]);
-  
   return (
     <div className={styles.layout}>
       <Head>
@@ -33,6 +26,9 @@ export default function Home() {
             <NFTCollectionsContainer 
               ownedNFT={ownedNFT.collections}
               projectsYouMightLike={projectsYouMightLike}
+              setProjectsYouMightLike={setProjectsYouMightLike}
+              projectsToCompare={projectsToCompare}
+              setProjectsToCompare={setProjectsToCompare}
             /> : 
             <></>
         }

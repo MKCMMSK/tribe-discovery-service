@@ -3,16 +3,22 @@ import styles from './NFTCollectionsContainer.module.css';
 import NFTCollection from './NFTCollection';
 
 export default function NFTCollectionsContainer(props) {
+    if(props.projectsYouMightLike.owners) {
+        console.log(props.projectsYouMightLike.owners, 'owners true');
+    }
     return(
         <div className={styles['nft-collections-container']}>
             <NFTCollection 
                 NFTProjects={props.ownedNFT} 
+                projectsToCompare={props.projectsToCompare}
+                setProjectsToCompare={props.setProjectsToCompare}
+                setProjectsYouMightLike={props.setProjectsYouMightLike}
                 allowAnalysis={true}
             />
             {
-                props.projectsYouMightLike['collections']?
+                props.projectsYouMightLike.owners?
                 <NFTCollection 
-                    NFTProjects={props.projectsYouMightLike.collections}
+                    owners={props.projectsYouMightLike.owners}
                     allowAnalysis={false}
                 />:
                 <></>
