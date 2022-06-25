@@ -10,8 +10,8 @@ export default function Home() {
   const [walletInput, setWalletInput] = useState('');
   const [ownedNFT, setOwnedNFT] = useState({});
   const [projectsToCompare, setProjectsToCompare] = useState([]);
-  const [projectsYouMightLike, setProjectsYouMightLike] = useState({});
   const [peopleYouMightWantToFollow, setPeopleYouMightWantToFollow] = useState({})
+  const [projectsYouMightLike, setProjectsYouMightLike] = useState({});
   const [isLoading, setIsLoading] =useState(false);
 
   return (
