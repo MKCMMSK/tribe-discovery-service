@@ -18,6 +18,7 @@ export default function NFTCollectionsContainer(props) {
             {
                 props.projectsYouMightLike.owners?
                 <NFTCollection 
+                    NFTProjects={props.ownedNFT} 
                     owners={props.projectsYouMightLike.owners}
                     allowAnalysis={false}
                 />:

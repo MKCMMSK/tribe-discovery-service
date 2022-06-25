@@ -7,7 +7,7 @@ import Owner from './Owner';
 export default function NFTCollection(props) {
     const ownedNFT = props.NFTProjects ? props.NFTProjects: undefined;
     let analysisButton = <></>;
-    
+
     if(props.allowAnalysis) {
         function analyse() {
             
@@ -33,7 +33,7 @@ export default function NFTCollection(props) {
             </div>
         );
     }
-    if (props.NFTProjects) {
+    if (props.NFTProjects && props.setProjectsToCompare) {
         return(
             <div className={styles['nft-collection']}>
                 <div className={styles['nft-collection-title-container']}>
@@ -61,7 +61,6 @@ export default function NFTCollection(props) {
     }
 
     if (props.owners){
-        console.log(props.owners, 'props owner inside nftcollection')
         return(
             <div className={styles['nft-collection']}>
                 <div className={styles['nft-collection-title-container']}>
@@ -70,13 +69,15 @@ export default function NFTCollection(props) {
                     </span>
                 </div>
             <div className={styles['nft-collection-list']}>
+                {console.log(props.NFTProjects, ' owned nft in collection')}
             {props.owners.map((owner) => {
-                console.log(owner, 'inside maps');
                 return(
                     <Owner
                         key={owner['address']}
                         owner={owner['address']}
                         count={owner['count']}
+                        commonCollections={owner['collections']}
+                        ownedNFT={ownedNFT}
                     />
                 )
             })}
