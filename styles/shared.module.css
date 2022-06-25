@@ -2,3 +2,25 @@
     width: 100vw;
     height: 100vh;
 }
+
+.input-button {
+    background: linear-gradient(90deg,rgba(24,231,193,.84) -13.12%,rgba(27,223,193,.8475) -1.37%,rgba(0,178,255,.92) 112.29%);
+    cursor: pointer;
+    text-align: center;
+    display: inline-flex;
+    -moz-box-align: center;
+    align-items: center;
+    -moz-box-pack: center;
+    justify-content: center;
+    padding: 5px 20px;
+    border-radius: 8px;
+    line-height: 1.3;
+    border: none;
+    height: 30px;
+    color: black;
+}
+
+.input-button:hover {
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    transition: box-shadow .3s;
+}

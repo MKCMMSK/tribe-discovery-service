@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import styles from './walletInput.module.css';
+import publicStyles from '../../styles/shared.module.css';
 
 export default function WalletInput(props) {
-
+    console.log(publicStyles)
     useEffect(()=>{
         console.log(props.walletInput, 'in use effect')
     }, [props.walletInput]);
@@ -26,7 +27,7 @@ export default function WalletInput(props) {
             <label className={styles['wallet-form-label']}>
                 <input className={styles['wallet-form-input']} placeholder='Enter a wallet address:' onChange={handleChange} />        
             </label>
-            <input className={styles['wallet-form-button']} type="submit" value="Look up" />
+            <input className={publicStyles['input-button']} type="submit" value="Look up" />
             </form>
         </div>
     )

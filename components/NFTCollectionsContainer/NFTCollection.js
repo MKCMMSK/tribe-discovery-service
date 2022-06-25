@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './NFTCollection.module.css';
 import NFTProject from './NFTProject';
+import publicStyles from '../../styles/shared.module.css';
 
 export default function NFTCollection(props) {
     const ownedNFT = props.NFTProjects;
@@ -9,7 +10,7 @@ export default function NFTCollection(props) {
     if(props.allowAnalysis) {
         analysisButton = (
             <div className={styles.button}>
-                <button>
+                <button className={publicStyles['input-button']}>
                     Select Projects to find Communities
                 </button>
             </div>
@@ -18,8 +19,10 @@ export default function NFTCollection(props) {
 
     return(
         <div className={styles['nft-collection']}>
-            <div className={styles['nft-collection-title']}>
-                Collections you own
+            <div className={styles['nft-collection-title-container']}>
+                <span className={styles['nft-collection-title']}>
+                    Collections you own
+                </span>
             </div>
             <div className={styles['nft-collection-list']}>
                 {ownedNFT.map(function(project){
