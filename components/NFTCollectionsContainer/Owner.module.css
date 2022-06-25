@@ -1,0 +1,24 @@
+.owner {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    min-height: 90px;
+    background-color: #fffeff;
+    margin: 10px;
+    border-radius: 10px;
+    border: 0.5px solid lightgray;
+}
+
+.NFT-owner-wallet {
+    width: 200px;
+}
+
+.NFT-owner-collection-count{
+
+}
+
+.NFT-project-img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
