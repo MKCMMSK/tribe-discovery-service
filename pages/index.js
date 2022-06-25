@@ -11,6 +11,7 @@ export default function Home() {
   const [ownedNFT, setOwnedNFT] = useState({});
   const [projectsToCompare, setProjectsToCompare] = useState([]);
   const [projectsYouMightLike, setProjectsYouMightLike] = useState({});
+  const [peopleYouMightWantToFollow, setPeopleYouMightWantToFollow] = useState({})
   const [isLoading, setIsLoading] =useState(false);
 
   return (
@@ -24,6 +25,9 @@ export default function Home() {
           walletInput={walletInput} 
           setWalletInput={setWalletInput} 
           setOwnedNFT={setOwnedNFT}
+          setPeopleYouMightWantToFollow={setPeopleYouMightWantToFollow}
+          setProjectsToCompare={setProjectsToCompare}
+          setProjectsYouMightLike={setProjectsYouMightLike}
         />
         {
           ownedNFT['collections'] ? 
@@ -33,6 +37,8 @@ export default function Home() {
               setProjectsYouMightLike={setProjectsYouMightLike}
               projectsToCompare={projectsToCompare}
               setProjectsToCompare={setProjectsToCompare}
+              peopleYouMightWantToFollow={peopleYouMightWantToFollow}
+              setPeopleYouMightWantToFollow={setPeopleYouMightWantToFollow}
             /> : 
             <></>
         }

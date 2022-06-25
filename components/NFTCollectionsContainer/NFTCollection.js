@@ -69,7 +69,6 @@ export default function NFTCollection(props) {
                     </span>
                 </div>
             <div className={styles['nft-collection-list']}>
-                {console.log(props.NFTProjects, ' owned nft in collection')}
             {props.owners.map((owner) => {
                 return(
                     <Owner
