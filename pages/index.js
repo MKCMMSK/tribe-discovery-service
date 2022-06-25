@@ -16,11 +16,15 @@ export default function Home() {
   return (
     <div className={styles.layout}>
       <Head>
-        <title>More Collections</title>
+        <title>Tribe Discovery Service</title>
       </Head>
       <Nav/>
       <Body>
-        <WalletInput walletInput={walletInput} setWalletInput={setWalletInput} setOwnedNFT={setOwnedNFT}/>
+        <WalletInput 
+          walletInput={walletInput} 
+          setWalletInput={setWalletInput} 
+          setOwnedNFT={setOwnedNFT}
+        />
         {
           ownedNFT['collections'] ? 
             <NFTCollectionsContainer 
