@@ -1,13 +1,20 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable @next/next/no-img-element */
 import React, {useEffect, useState} from 'react';
-import Image from 'next/image';
 import styles from './NFTProject.module.css';
-import publicStyles from '../../styles/shared.module.css';
 
 export default function NFTProject(props) {
+
     let addButton = <></>;
+    let currentList = props.projectsToCompare;
     const [isSelected, setIsSelected] = useState(false);
     const currentProject = props.href;
-    let currentList = props.projectsToCompare;
+
+    useEffect(() => {
+        if(props.projectsToCompare) {
+            setIsSelected(false);
+        }
+    },[props.projectsToCompare]);
 
     function addOrRemoveToNFTCompareList(e) {
         e.preventDefault();

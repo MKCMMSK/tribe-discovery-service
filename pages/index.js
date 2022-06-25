@@ -11,16 +11,24 @@ export default function Home() {
   const [ownedNFT, setOwnedNFT] = useState({});
   const [projectsToCompare, setProjectsToCompare] = useState([]);
   const [projectsYouMightLike, setProjectsYouMightLike] = useState({});
+  const [peopleYouMightWantToFollow, setPeopleYouMightWantToFollow] = useState({})
   const [isLoading, setIsLoading] =useState(false);
 
   return (
     <div className={styles.layout}>
       <Head>
-        <title>More Collections</title>
+        <title>Tribe Discovery Service</title>
       </Head>
       <Nav/>
       <Body>
-        <WalletInput walletInput={walletInput} setWalletInput={setWalletInput} setOwnedNFT={setOwnedNFT}/>
+        <WalletInput 
+          walletInput={walletInput} 
+          setWalletInput={setWalletInput} 
+          setOwnedNFT={setOwnedNFT}
+          setPeopleYouMightWantToFollow={setPeopleYouMightWantToFollow}
+          setProjectsToCompare={setProjectsToCompare}
+          setProjectsYouMightLike={setProjectsYouMightLike}
+        />
         {
           ownedNFT['collections'] ? 
             <NFTCollectionsContainer 
@@ -29,6 +37,8 @@ export default function Home() {
               setProjectsYouMightLike={setProjectsYouMightLike}
               projectsToCompare={projectsToCompare}
               setProjectsToCompare={setProjectsToCompare}
+              peopleYouMightWantToFollow={peopleYouMightWantToFollow}
+              setPeopleYouMightWantToFollow={setPeopleYouMightWantToFollow}
             /> : 
             <></>
         }
