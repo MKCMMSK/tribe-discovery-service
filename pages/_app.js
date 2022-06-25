@@ -9,6 +9,7 @@ function MyApp({ Component, pageProps }) {
           overflow: hidden;
           display: flex;
           flex-direction: column;
+          font-family: Euclid Circular B,sans-serif;
         }
       `}</style>
       <Component {...pageProps} />

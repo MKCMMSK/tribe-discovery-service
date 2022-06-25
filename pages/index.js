@@ -10,7 +10,7 @@ import NFTCollectionsContainer from '../components/NFTCollectionsContainer';
 
 export default function Home() {
   const [walletInput, setWalletInput] = useState('');
-  const [ownedNFT, setOwnedNFT] = useState(data);
+  const [ownedNFT, setOwnedNFT] = useState({});
   const [projectsToCompare, setProjectsToCompare] = useState([]);
   const [projectsYouMightLike, setProjectsYouMightLike] = useState({});
   const [isLoading, setIsLoading] =useState(false);
@@ -27,7 +27,7 @@ export default function Home() {
       </Head>
       <Nav/>
       <Body>
-        <WalletInput walletInput={walletInput} setWalletInput={setWalletInput}/>
+        <WalletInput walletInput={walletInput} setWalletInput={setWalletInput} setOwnedNFT={setOwnedNFT}/>
         {
           ownedNFT['collections'] ? 
             <NFTCollectionsContainer 

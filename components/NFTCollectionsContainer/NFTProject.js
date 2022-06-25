@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import styles from './NFTProject.module.css';
+import publicStyles from '../../styles/shared.module.css';
 
 export default function NFTProject(props) {
     let addButton = <></>;
@@ -8,7 +9,7 @@ export default function NFTProject(props) {
     if(props.allowAnalysis) {
         addButton = (
             <div className={styles['addNFTButton']}>
-                <button>Add</button>
+                <button className={styles['nft-collection-button']}>Add</button>
             </div>
         )
     }
