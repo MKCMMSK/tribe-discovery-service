@@ -1,0 +1,9 @@
+.body-container {
+    display: flex;
+    height: 95%;
+    width: 100%;
+    padding: 12px 60px;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    background-color: blue;
+}
