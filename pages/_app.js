@@ -5,6 +5,7 @@ function MyApp({ Component, pageProps }) {
         body {
           margin: 0;
           min-height: 100vh;
+          width: 100vw;
           overflow: hidden;
           display: flex;
           flex-direction: column;
