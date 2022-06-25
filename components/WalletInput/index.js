@@ -17,9 +17,9 @@ export default function WalletInput(props) {
     return(
         <div className={styles['wallet-input-container']}>
             <form className={styles['wallet-form']} onSubmit={sendWalletAddress}>
-            <label>
+            <label className={styles['wallet-form-label']}>
                 Wallet Address:
-                <textarea onChange={handleChange} />        
+                <input onChange={handleChange} />        
             </label>
             <input type="submit" value="Submit" />
             </form>
