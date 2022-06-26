@@ -16,10 +16,10 @@ export default function NFTCollection(props) {
 
     if(props.allowAnalysis) {
         function analyse() {
-            
+            props.setUsersToCompare([]);
+            props.setListOfProjects({});
             let queryString = '';
             
-
             if(props.projectsToCompare.length <= 0) {
                 throw Error('No projects selected')
             }
@@ -148,8 +148,6 @@ export default function NFTCollection(props) {
                                 projectImage={ props.projectDict[project.id].image}
                             />
                         )
-                    } else {
-                        console.log(props.projectDict[project.id], ' this is in else');
                     }
                 })}
                 </div>

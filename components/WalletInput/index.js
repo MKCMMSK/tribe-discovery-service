@@ -17,7 +17,10 @@ export default function WalletInput(props) {
         .catch(err => console.error(err, ' submitting wallet'));
 
         props.setPeopleYouMightWantToFollow({});
+        props.setListOfProjects({});
+        props.setProjectsYouMightBeInterestedIn({});
         props.setProjectsToCompare([]);
+        props.setUsersToCompare([]);
     }
 
     return(

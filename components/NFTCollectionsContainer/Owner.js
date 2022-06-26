@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Owner.module.css';
 
 export default function Owner(props) {
@@ -13,6 +13,12 @@ export default function Owner(props) {
     let commonCollectionsImg = [];
     walletParsed += '...';
     walletParsed += props.owner.substring(props.owner.length - 3);
+
+    useEffect(() => {
+        if(props.usersToCompare) {
+            setIsSelected(false);
+        }
+    },[props.usersToCompare]);
 
 
     for(let i = 0; i < props.commonCollections.length; i++) {
