@@ -40,7 +40,7 @@
 }
 
 .nft-collection-button {
-    background: rgba(27,223,193,.8475);
+    background: white;
     cursor: pointer;
     text-align: center;
     display: inline-flex;
@@ -48,18 +48,19 @@
     align-items: center;
     -moz-box-pack: center;
     justify-content: center;
-    padding: 5px 20px;
+    padding: 7px 20px;
     border-radius: 8px;
     line-height: 1.3;
-    border: none;
+    border: 1.5;
+    border-color: rgba(27,223,193);
     height: 30px;
-    color: white;
+    color: rgba(27,223,193,.8475);
     max-width: 65px;
     min-width: 65px;
 }
 
 .nft-collection-button-selected {
-    background: darkgray;
+    background: rgba(27,223,193,.8475);
     cursor: pointer;
     text-align: center;
     display: inline-flex;

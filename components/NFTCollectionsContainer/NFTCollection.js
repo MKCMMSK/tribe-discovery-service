@@ -10,9 +10,9 @@ export default function NFTCollection(props) {
 
     if(props.allowAnalysis) {
         function analyse() {
-            
+
             let queryString = '';
-            
+
             props.projectsToCompare.forEach((project) => {
                 queryString += `collections=${project}&`
             })
@@ -44,7 +44,7 @@ export default function NFTCollection(props) {
                 <div className={styles['nft-collection-list']}>
                     {ownedNFT.map(function(project){
                         return (
-                            <NFTProject 
+                            <NFTProject
                                 key={ project.collection.id }
                                 href={ project.collection.id }
                                 projectName={ project.collection.name }
@@ -65,7 +65,7 @@ export default function NFTCollection(props) {
             <div className={styles['nft-collection']}>
                 <div className={styles['nft-collection-title-container']}>
                     <span className={styles['nft-collection-title']}>
-                        Wallets that own similar collections
+                        This wallets have the same interests
                     </span>
                 </div>
             <div className={styles['nft-collection-list']}>
@@ -83,7 +83,7 @@ export default function NFTCollection(props) {
             })}
             </div>
         </div>
-            
+
         )
     }
 

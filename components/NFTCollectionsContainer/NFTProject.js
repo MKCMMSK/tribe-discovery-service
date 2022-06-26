@@ -25,14 +25,14 @@ export default function NFTProject(props) {
             props.setProjectsToCompare(currentList);
         }
     }
- 
+
     if(props.setProjectsToCompare) {
         addButton = (
             <div className={styles['addNFTButton']}>
-                <button 
-                    className={isSelected ? styles['nft-collection-button-selected'] : styles['nft-collection-button']} 
+                <button
+                    className={isSelected ? styles['nft-collection-button-selected'] : styles['nft-collection-button']}
                     onClick={addOrRemoveToNFTCompareList}>
-                    {isSelected ? 'Added' : 'Add' }
+                    {isSelected ? 'Selected' : 'Select' }
                 </button>
             </div>
         )
@@ -41,8 +41,8 @@ export default function NFTProject(props) {
     return(
         <div className={styles['NFT-project']}>
             <div className={styles['NFT-project-img-container']}>
-                <img 
-                    src={`${props.projectImage}`} 
+                <img
+                    src={`${props.projectImage}`}
                     className={styles['NFT-project-img']}
                 />
             </div>
