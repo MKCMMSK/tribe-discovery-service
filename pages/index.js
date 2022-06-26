@@ -16,7 +16,7 @@ export default function Home() {
   const [projectsToCompare, setProjectsToCompare] = useState([]);
   const [usersToCompare, setUsersToCompare] = useState([]);
   let projectDict = {};
-  
+
   useEffect(() => {
     let projectAddresses = '';
     if(projectsYouMightBeInterestedIn.collections) {
@@ -24,7 +24,7 @@ export default function Home() {
         projectAddresses += 'contract=' + project.address + '&';
       });
       const options = {method: 'GET', headers: {Accept: '*/*', 'x-api-key': 'demo-api-key'}};
-  
+
       fetch(`https://api.reservoir.tools/collections/v4?${projectAddresses}sortBy=allTimeVolume&includeTopBid=false&limit=20`, options)
         .then(response => response.json())
         .then(response => setListOfProjects(response))
@@ -47,9 +47,9 @@ export default function Home() {
       </Head>
       <Nav/>
       <Body>
-        <WalletInput 
-          walletInput={walletInput} 
-          setWalletInput={setWalletInput} 
+        <WalletInput
+          walletInput={walletInput}
+          setWalletInput={setWalletInput}
           setOwnedNFT={setOwnedNFT}
           setPeopleYouMightWantToFollow={setPeopleYouMightWantToFollow}
           setProjectsToCompare={setProjectsToCompare}
@@ -58,8 +58,8 @@ export default function Home() {
           setUsersToCompare={setUsersToCompare}
         />
         {
-          ownedNFT['collections'] ? 
-            <NFTCollectionsContainer 
+          ownedNFT['collections'] ?
+            <NFTCollectionsContainer
               ownedNFT={ownedNFT.collections}
               projectsToCompare={projectsToCompare}
               setProjectsToCompare={setProjectsToCompare}
