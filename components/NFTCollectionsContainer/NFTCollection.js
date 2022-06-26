@@ -28,7 +28,7 @@ export default function NFTCollection(props) {
         analysisButton = (
             <div className={styles.button}>
                 <button className={publicStyles['input-button']} onClick={analyse}>
-                    Select Projects to find Communities
+                    Discover tribe members
                 </button>
             </div>
         );
@@ -65,7 +65,7 @@ export default function NFTCollection(props) {
             <div className={styles['nft-collection']}>
                 <div className={styles['nft-collection-title-container']}>
                     <span className={styles['nft-collection-title']}>
-                        This wallets have the same interests
+                        Tribe members
                     </span>
                 </div>
             <div className={styles['nft-collection-list']}>
