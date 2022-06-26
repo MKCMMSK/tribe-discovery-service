@@ -44,13 +44,13 @@ export default function NFTProject(props) {
             </div>
         )
     }
-
-    console.log(props)
-
+    console.log(currentProject, 'current project');
+    console.log(props.href, ' ref');
+    
     return(
         <div className={styles['NFT-project']}>
             <div className={styles['NFT-project-img-container']}>
-                <a target="_blank" href={"https://opensea.io/assets?search[query]=" + props.href} rel="noreferrer">
+                <a target="_blank" href={"https://opensea.io/assets?search[query]=" + currentProject} rel="noreferrer">
                 <img
                     src={`${props.projectImage}`}
 
@@ -58,7 +58,8 @@ export default function NFTProject(props) {
                 />
                 </a>
             </div>
-            <div className={styles['NFT-project-title']} onClick={() => window.open("https://opensea.io/assets?search[query]=" + props.href, "_blank")}>
+            <div className={styles['NFT-project-title']} onClick={() => window.open("https://opensea.io/assets?search[query]=" + currentProject, "_blank")}>
+
                 {props.projectName}
                 {/* <a href={"https://opensea.io/assets?search[query]=" + props.href}  className={styles['NFT-project-title']} target="_blank" rel="noreferrer">{props.projectName}</a> */}
             </div>
