@@ -21,17 +21,17 @@ export default function Home() {
       </Head>
       <Nav/>
       <Body>
-        <WalletInput 
-          walletInput={walletInput} 
-          setWalletInput={setWalletInput} 
+        <WalletInput
+          walletInput={walletInput}
+          setWalletInput={setWalletInput}
           setOwnedNFT={setOwnedNFT}
           setPeopleYouMightWantToFollow={setPeopleYouMightWantToFollow}
           setProjectsToCompare={setProjectsToCompare}
           setProjectsYouMightLike={setProjectsYouMightLike}
         />
         {
-          ownedNFT['collections'] ? 
-            <NFTCollectionsContainer 
+          ownedNFT['collections'] ?
+            <NFTCollectionsContainer
               ownedNFT={ownedNFT.collections}
               projectsYouMightLike={projectsYouMightLike}
               setProjectsYouMightLike={setProjectsYouMightLike}
@@ -39,7 +39,7 @@ export default function Home() {
               setProjectsToCompare={setProjectsToCompare}
               peopleYouMightWantToFollow={peopleYouMightWantToFollow}
               setPeopleYouMightWantToFollow={setPeopleYouMightWantToFollow}
-            /> : 
+            /> :
             <></>
         }
       </Body>
