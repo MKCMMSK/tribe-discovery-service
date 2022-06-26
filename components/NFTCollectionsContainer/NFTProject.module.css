@@ -18,7 +18,7 @@
 .NFT-project:hover {
     box-shadow: 4px 8px 8px 0 rgba(0,0,0,0.1);
     transition: box-shadow .3s;
-  }
+}
 
 .NFT-project-img {
     border-radius: 50%;
