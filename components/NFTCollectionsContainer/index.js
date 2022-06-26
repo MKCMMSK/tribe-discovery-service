@@ -25,9 +25,10 @@ export default function NFTCollectionsContainer(props) {
                 <></>
             }
             {
-                props.projectsYouMightBeInterestedIn ? 
+                props.listOfProjects.collections ? 
                 <NFTCollection 
-                    NFTProjects={props.ownedNFT} 
+                    listOfProjects={props.listOfProjects}
+                    projectDict={props.projectDict}
                     allowAnalysis={false}
                 />:
                 <></>

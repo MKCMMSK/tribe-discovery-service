@@ -14,7 +14,7 @@ export default function WalletInput(props) {
         fetch(`https://api.reservoir.tools/users/${props.walletInput}/collections/v2?includeTopBid=false&offset=0&limit=20`, options)
         .then(response => response.json())
         .then(response => props.setOwnedNFT(response))
-        .catch(err => console.error(err));
+        .catch(err => console.error(err, ' submitting wallet'));
 
         props.setPeopleYouMightWantToFollow({});
         props.setProjectsToCompare([]);

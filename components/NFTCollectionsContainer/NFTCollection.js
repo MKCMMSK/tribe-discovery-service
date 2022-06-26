@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './NFTCollection.module.css';
 import NFTProject from './NFTProject';
 import publicStyles from '../../styles/shared.module.css';
@@ -7,6 +7,12 @@ import Owner from './Owner';
 export default function NFTCollection(props) {
     const ownedNFT = props.NFTProjects ? props.NFTProjects: undefined;
     let analysisButton = <></>;
+    
+    const [listOfProjects, setListOfProjects] = useState({})
+    
+    useEffect(() => {
+        setListOfProjects(props.listOfProjects)
+    })
 
     if(props.allowAnalysis) {
         function analyse() {
@@ -27,7 +33,7 @@ export default function NFTCollection(props) {
             .then(response => {
                 props.setPeopleYouMightWantToFollow(response);
             })
-            .catch(err => console.error(err));
+            .catch(err => console.error(err, ' submitting projects'));
         }
 
         analysisButton = (
@@ -38,6 +44,7 @@ export default function NFTCollection(props) {
             </div>
         );
     }
+
     if (props.NFTProjects && props.setProjectsToCompare) {
         return(
             <div className={styles['nft-collection']}>
@@ -82,7 +89,7 @@ export default function NFTCollection(props) {
             fetch(`https://api.reservoir.tools/owners/common-collections/v1?${queryString}limit=20`, options)
               .then(response => response.json())
               .then(response => props.setProjectsYouMightBeInterestedIn(response))
-              .catch(err => console.error(err));
+              .catch(err => console.error(err, ' submitting users'));
         }
 
         let getCommonProjectsButton = (
@@ -100,27 +107,53 @@ export default function NFTCollection(props) {
                         Wallets that own similar collections
                     </span>
                 </div>
-            <div className={styles['nft-collection-list']}>
-            {props.owners.map((owner) => {
-                return(
-                    <Owner
-                        key={owner.address}
-                        href={owner.address}
-                        owner={owner.address}
-                        count={owner.count}
-                        commonCollections={owner.collections}
-                        usersToCompare={props.usersToCompare}
-                        setUsersToCompare={props.setUsersToCompare}
-                        ownedNFT={ownedNFT}
-                    />
-                )
-            })}
-            </div>
-            {getCommonProjectsButton}
-        </div>
+                <div className={styles['nft-collection-list']}>
+                {props.owners.map((owner) => {
+                    return(
+                        <Owner
+                            key={owner.address}
+                            href={owner.address}
+                            owner={owner.address}
+                            count={owner.count}
+                            commonCollections={owner.collections}
+                            usersToCompare={props.usersToCompare}
+                            setUsersToCompare={props.setUsersToCompare}
+                            ownedNFT={ownedNFT}
+                        />
+                    )
+                })}
+                </div>
+                {getCommonProjectsButton}
+             </div>
             
         )
     }
-
-    // if(props.NFTProjects)
+    
+    if(listOfProjects.collections) {
+        return(
+            <div className={styles['nft-collection']}>
+                <div className={styles['nft-collection-title-container']}>
+                    <span className={styles['nft-collection-title']}>
+                        Projects with similar taste
+                    </span>
+                </div>
+                <div className={styles['nft-collection-list']}>
+                {listOfProjects.collections.map((project) => {
+                    if(props.projectDict[project.id]) {
+                        return(
+                            <NFTProject 
+                                key={ project.address }
+                                href={ project.address }
+                                projectName={ props.projectDict[project.id].name}
+                                projectImage={ props.projectDict[project.id].image}
+                            />
+                        )
+                    } else {
+                        console.log(props.projectDict[project.id], ' this is in else');
+                    }
+                })}
+                </div>
+             </div>
+        )
+    }
 }
