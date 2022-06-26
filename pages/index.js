@@ -10,8 +10,6 @@ import NFTCollectionsContainer from '../components/NFTCollectionsContainer';
 import { PrivyClient, SiweSession } from '@privy-io/privy-browser';
 
 const provider = typeof window !== "undefined" ? window.ethereum : null;
-console.log(process.env.NEXT_PUBLIC_PRIVY_API_KEY, ' this is env key')
-console.log(provider);
 const session = new SiweSession(process.env.NEXT_PUBLIC_PRIVY_API_KEY, provider)
 const client = new PrivyClient({
   session: session,
@@ -89,12 +87,14 @@ export default function Home() {
         field: "name",
         value: username
       });
-    } else if (discordHandle) {
+    } 
+    if (discordHandle) {
       dataArr.push({
         field: "discord",
         value: discordHandle
       })
-    }  else if (twitterHandle) {
+    }
+    if (twitterHandle) {
       dataArr.push({
         field: "twitter",
         value: twitterHandle

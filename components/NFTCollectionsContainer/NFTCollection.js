@@ -151,8 +151,8 @@ export default function NFTCollection(props) {
                     if(props.projectDict[project.id]) {
                         return(
                             <NFTProject
-                                key={ project.address }
-                                href={ project.address }
+                                key={ project.id }
+                                href={ project.id }
                                 projectName={ props.projectDict[project.id].name}
                                 projectImage={ props.projectDict[project.id].image}
                             />
