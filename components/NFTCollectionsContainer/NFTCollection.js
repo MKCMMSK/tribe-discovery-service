@@ -130,6 +130,15 @@ export default function NFTCollection(props) {
     }
 
     if(listOfProjects.collections) {
+
+        let getCommonProjectsButton = (
+            <div className={styles.button}>
+                <button className={`${publicStyles['input-button']} ${styles['button-none']}`}>
+                    Find common projects!
+                </button>
+            </div>
+        );
+
         return(
             <div className={styles['nft-collection']}>
                 <div className={styles['nft-collection-title-container']}>
@@ -151,6 +160,7 @@ export default function NFTCollection(props) {
                     }
                 })}
                 </div>
+                {getCommonProjectsButton}
              </div>
         )
     }

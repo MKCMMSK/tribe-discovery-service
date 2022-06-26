@@ -57,7 +57,7 @@ export default function Owner(props) {
             <button 
                 className={isSelected ? styles['user-collection-button-selected'] : styles['user-collection-button']} 
                 onClick={addOrRemoveToNFTCompareList}>
-                {isSelected ? 'Added' : 'Add' }
+                {isSelected ? 'Selected' : 'Select' }
             </button>
         </div>
     );
