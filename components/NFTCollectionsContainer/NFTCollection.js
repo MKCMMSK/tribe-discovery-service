@@ -7,7 +7,7 @@ import Owner from './Owner';
 export default function NFTCollection(props) {
     const ownedNFT = props.NFTProjects ? props.NFTProjects: undefined;
     let analysisButton = <></>;
-
+    console.log(props.setPeopleYouMightWantToFollow, "inside collection")
     if(props.allowAnalysis) {
         function analyse() {
 
@@ -20,7 +20,7 @@ export default function NFTCollection(props) {
             fetch(`https://api.reservoir.tools/owners/cross-collections/v1?${queryString}limit=20`, options)
             .then(response => response.json())
             .then(response => {
-                props.setProjectsYouMightLike(response);
+                props.setPeopleYouMightWantToFollow(response);
             })
             .catch(err => console.error(err));
         }
@@ -69,7 +69,6 @@ export default function NFTCollection(props) {
                     </span>
                 </div>
             <div className={styles['nft-collection-list']}>
-                {console.log(props.NFTProjects, ' owned nft in collection')}
             {props.owners.map((owner) => {
                 return(
                     <Owner

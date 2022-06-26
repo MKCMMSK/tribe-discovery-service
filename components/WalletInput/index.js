@@ -15,6 +15,10 @@ export default function WalletInput(props) {
         .then(response => response.json())
         .then(response => props.setOwnedNFT(response))
         .catch(err => console.error(err));
+
+        props.setPeopleYouMightWantToFollow({});
+        props.setProjectsToCompare([]);
+        props.setProjectsYouMightLike({});
     }
 
     return(
