@@ -3,5 +3,6 @@
     width: 100%;
     height: 80vh;
     flex-flow: wrap;
-    overflow: auto;
+    overflow: hidden;
+    justify-content: space-evenly;
 }
