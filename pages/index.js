@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import Head from 'next/head'
 import styles from '../styles/shared.module.css';
@@ -11,8 +12,22 @@ export default function Home() {
   const [ownedNFT, setOwnedNFT] = useState({});
   const [projectsToCompare, setProjectsToCompare] = useState([]);
   const [peopleYouMightWantToFollow, setPeopleYouMightWantToFollow] = useState({})
-  const [projectsYouMightLike, setProjectsYouMightLike] = useState({});
+  const [usersToCompare, setUsersToCompare] = useState([]);
+  const [projectsYouMightBeInterestedIn, setProjectsYouMightBeInterestedIn] = useState({})
   const [isLoading, setIsLoading] =useState(false);
+  let listOfProject = {};
+  let projectAddresses = '';
+
+  useEffect(() => {
+    if(projectsYouMightBeInterestedIn.collections) {
+      projectsYouMightBeInterestedIn.collections.forEach((project) => {
+        projectAddresses += 'contract=' + project.address + '&';
+      });
+      console.log(projectAddresses, ' this is project addresses');
+    }
+
+
+  }, [projectsYouMightBeInterestedIn]);
 
   return (
     <div className={styles.layout}>
@@ -27,18 +42,19 @@ export default function Home() {
           setOwnedNFT={setOwnedNFT}
           setPeopleYouMightWantToFollow={setPeopleYouMightWantToFollow}
           setProjectsToCompare={setProjectsToCompare}
-          setProjectsYouMightLike={setProjectsYouMightLike}
         />
         {
           ownedNFT['collections'] ? 
             <NFTCollectionsContainer 
               ownedNFT={ownedNFT.collections}
-              projectsYouMightLike={projectsYouMightLike}
-              setProjectsYouMightLike={setProjectsYouMightLike}
               projectsToCompare={projectsToCompare}
               setProjectsToCompare={setProjectsToCompare}
               peopleYouMightWantToFollow={peopleYouMightWantToFollow}
               setPeopleYouMightWantToFollow={setPeopleYouMightWantToFollow}
+              usersToCompare={usersToCompare}
+              setUsersToCompare={setUsersToCompare}
+              projectsYouMightBeInterestedIn={projectsYouMightBeInterestedIn}
+              setProjectsYouMightBeInterestedIn={setProjectsYouMightBeInterestedIn}
             /> : 
             <></>
         }

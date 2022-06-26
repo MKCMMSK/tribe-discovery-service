@@ -18,7 +18,6 @@ export default function WalletInput(props) {
 
         props.setPeopleYouMightWantToFollow({});
         props.setProjectsToCompare([]);
-        props.setProjectsYouMightLike({});
     }
 
     return(

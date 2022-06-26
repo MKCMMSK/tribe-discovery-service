@@ -7,12 +7,17 @@ import Owner from './Owner';
 export default function NFTCollection(props) {
     const ownedNFT = props.NFTProjects ? props.NFTProjects: undefined;
     let analysisButton = <></>;
-    console.log(props.setPeopleYouMightWantToFollow, "inside collection")
+
     if(props.allowAnalysis) {
         function analyse() {
             
             let queryString = '';
             
+
+            if(props.projectsToCompare.length <= 0) {
+                throw Error('No projects selected')
+            }
+
             props.projectsToCompare.forEach((project) => {
                 queryString += `collections=${project}&`
             })
@@ -28,7 +33,7 @@ export default function NFTCollection(props) {
         analysisButton = (
             <div className={styles.button}>
                 <button className={publicStyles['input-button']} onClick={analyse}>
-                    Select Projects to find Communities
+                    Find common users!
                 </button>
             </div>
         );
@@ -60,7 +65,34 @@ export default function NFTCollection(props) {
         )
     }
 
-    if (props.owners){
+    if (props.owners && props.allowAnalysis){
+
+        function getCommonCollections() {
+            let queryString = '';
+            
+            if(!props.usersToCompare) {
+                throw Error('No users selected')
+            }
+
+            props.usersToCompare.forEach((user) => {
+                queryString += `owners=${user}&`
+            })
+            const options = {method: 'GET', headers: {Accept: '*/*', 'x-api-key': 'demo-api-key'}};
+
+            fetch(`https://api.reservoir.tools/owners/common-collections/v1?${queryString}limit=20`, options)
+              .then(response => response.json())
+              .then(response => props.setProjectsYouMightBeInterestedIn(response))
+              .catch(err => console.error(err));
+        }
+
+        let getCommonProjectsButton = (
+            <div className={styles.button}>
+                <button className={publicStyles['input-button']} onClick={getCommonCollections}>
+                    Find common projects!
+                </button>
+            </div>
+        );
+
         return(
             <div className={styles['nft-collection']}>
                 <div className={styles['nft-collection-title-container']}>
@@ -72,18 +104,23 @@ export default function NFTCollection(props) {
             {props.owners.map((owner) => {
                 return(
                     <Owner
-                        key={owner['address']}
-                        owner={owner['address']}
-                        count={owner['count']}
-                        commonCollections={owner['collections']}
+                        key={owner.address}
+                        href={owner.address}
+                        owner={owner.address}
+                        count={owner.count}
+                        commonCollections={owner.collections}
+                        usersToCompare={props.usersToCompare}
+                        setUsersToCompare={props.setUsersToCompare}
                         ownedNFT={ownedNFT}
                     />
                 )
             })}
             </div>
+            {getCommonProjectsButton}
         </div>
             
         )
     }
 
+    // if(props.NFTProjects)
 }
