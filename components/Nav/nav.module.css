@@ -8,9 +8,43 @@
     padding-left: 150px;
     padding-right: 150px;
     border: 0.5px solid lightgray;
+    justify-content: space-between;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .logo {
     font-size: 20px;
     font-weight: 600;
+}
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-form-label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-form-input {
+    width: 325px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1.5px solid lightgray;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 0px 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.modal-form-input:focus {
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    border: 1.5px solid rgba(81, 203, 238, 1);
+    outline: none;
 }
