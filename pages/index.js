@@ -10,22 +10,21 @@ import NFTCollectionsContainer from '../components/NFTCollectionsContainer';
 export default function Home() {
   const [walletInput, setWalletInput] = useState('');
   const [ownedNFT, setOwnedNFT] = useState({});
-  const [projectsToCompare, setProjectsToCompare] = useState([]);
   const [peopleYouMightWantToFollow, setPeopleYouMightWantToFollow] = useState({})
-  const [usersToCompare, setUsersToCompare] = useState([]);
   const [projectsYouMightBeInterestedIn, setProjectsYouMightBeInterestedIn] = useState({})
   const [listOfProjects, setListOfProjects] = useState({});
+  const [projectsToCompare, setProjectsToCompare] = useState([]);
+  const [usersToCompare, setUsersToCompare] = useState([]);
   let projectDict = {};
-  
+
   useEffect(() => {
     let projectAddresses = '';
     if(projectsYouMightBeInterestedIn.collections) {
       projectsYouMightBeInterestedIn.collections.forEach((project) => {
         projectAddresses += 'contract=' + project.address + '&';
       });
-      console.log(projectAddresses, ' query')
       const options = {method: 'GET', headers: {Accept: '*/*', 'x-api-key': 'demo-api-key'}};
-  
+
       fetch(`https://api.reservoir.tools/collections/v4?${projectAddresses}sortBy=allTimeVolume&includeTopBid=false&limit=20`, options)
         .then(response => response.json())
         .then(response => setListOfProjects(response))
@@ -38,8 +37,6 @@ export default function Home() {
       for(let i = 0; i < listOfProjects.collections.length; i++) {
         projectDict[listOfProjects.collections[i].id] = listOfProjects.collections[i];
       }
-      console.log(projectDict, ' project dict');
-      console.log(listOfProjects, ' list of projects');
     }
   }, [listOfProjects])
 
@@ -50,16 +47,19 @@ export default function Home() {
       </Head>
       <Nav/>
       <Body>
-        <WalletInput 
-          walletInput={walletInput} 
-          setWalletInput={setWalletInput} 
+        <WalletInput
+          walletInput={walletInput}
+          setWalletInput={setWalletInput}
           setOwnedNFT={setOwnedNFT}
           setPeopleYouMightWantToFollow={setPeopleYouMightWantToFollow}
           setProjectsToCompare={setProjectsToCompare}
+          setListOfProjects={setListOfProjects}
+          setProjectsYouMightBeInterestedIn={setProjectsYouMightBeInterestedIn}
+          setUsersToCompare={setUsersToCompare}
         />
         {
-          ownedNFT['collections'] ? 
-            <NFTCollectionsContainer 
+          ownedNFT['collections'] ?
+            <NFTCollectionsContainer
               ownedNFT={ownedNFT.collections}
               projectsToCompare={projectsToCompare}
               setProjectsToCompare={setProjectsToCompare}
@@ -71,6 +71,7 @@ export default function Home() {
               setProjectsYouMightBeInterestedIn={setProjectsYouMightBeInterestedIn}
               projectDict={projectDict}
               listOfProjects={listOfProjects}
+              setListOfProjects={setListOfProjects}
             /> : 
             <></>
         }

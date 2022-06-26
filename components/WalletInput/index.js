@@ -17,14 +17,17 @@ export default function WalletInput(props) {
         .catch(err => console.error(err, ' submitting wallet'));
 
         props.setPeopleYouMightWantToFollow({});
+        props.setListOfProjects({});
+        props.setProjectsYouMightBeInterestedIn({});
         props.setProjectsToCompare([]);
+        props.setUsersToCompare([]);
     }
 
     return(
         <div className={styles['wallet-input-container']}>
             <form className={styles['wallet-form']} onSubmit={sendWalletAddress}>
             <label className={styles['wallet-form-label']}>
-                <input className={styles['wallet-form-input']} placeholder='Enter a wallet address:' onChange={handleChange} />        
+                <input className={styles['wallet-form-input']} placeholder='Enter a wallet address...' onChange={handleChange} />
             </label>
             <input className={publicStyles['input-button']} type="submit" value="Look up" />
             </form>

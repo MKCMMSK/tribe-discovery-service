@@ -10,6 +10,8 @@ export default function NFTCollectionsContainer(props) {
                 projectsToCompare={props.projectsToCompare}
                 setProjectsToCompare={props.setProjectsToCompare}
                 setPeopleYouMightWantToFollow={props.setPeopleYouMightWantToFollow}
+                setUsersToCompare={props.setUsersToCompare}
+                setListOfProjects={props.setListOfProjects}
                 allowAnalysis={true}
             />
             {
